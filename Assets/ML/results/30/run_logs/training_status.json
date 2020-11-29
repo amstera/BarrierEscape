@@ -1,0 +1,24 @@
+{
+    "Game Behavior": {
+        "checkpoints": [
+            {
+                "steps": 5321,
+                "file_path": "results/30/Game Behavior/Game Behavior-5321.onnx",
+                "reward": -1.0647367916086263,
+                "creation_time": 1606595306.09509
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5321,
+            "file_path": "results/30/Game Behavior.onnx",
+            "reward": -1.0647367916086263,
+            "creation_time": 1606595306.09509
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.22.0",
+        "torch_version": "1.7.0",
+        "tensorflow_version": "2.3.1"
+    }
+}

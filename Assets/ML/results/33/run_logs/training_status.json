@@ -1,0 +1,42 @@
+{
+    "Game Behavior": {
+        "checkpoints": [
+            {
+                "steps": 64714,
+                "file_path": "results/33/Game Behavior/Game Behavior-64714.onnx",
+                "reward": -1.148840548335642,
+                "creation_time": 1606601835.303318
+            },
+            {
+                "steps": 231173,
+                "file_path": "results/33/Game Behavior/Game Behavior-231173.onnx",
+                "reward": -0.4448571673461369,
+                "creation_time": 1606605385.1916711
+            },
+            {
+                "steps": 289717,
+                "file_path": "results/33/Game Behavior/Game Behavior-289717.onnx",
+                "reward": -0.21158122481443944,
+                "creation_time": 1606606600.5845828
+            },
+            {
+                "steps": 374531,
+                "file_path": "results/33/Game Behavior/Game Behavior-374531.onnx",
+                "reward": 0.15827578237687034,
+                "creation_time": 1606608018.722383
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 374531,
+            "file_path": "results/33/Game Behavior.onnx",
+            "reward": 0.15827578237687034,
+            "creation_time": 1606608018.722383
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.22.0",
+        "torch_version": "1.7.0",
+        "tensorflow_version": "2.3.1"
+    }
+}

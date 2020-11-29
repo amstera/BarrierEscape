@@ -1,0 +1,64 @@
+{
+    "Game Behavior": {
+        "checkpoints": [
+            {
+                "steps": 500008,
+                "file_path": "results/38/Game Behavior/Game Behavior-500008.onnx",
+                "reward": 2.61165625697996,
+                "creation_time": 1606621232.819981
+            },
+            {
+                "steps": 500008,
+                "file_path": "results/38/Game Behavior/Game Behavior-500008.onnx",
+                "reward": null,
+                "creation_time": 1606621728.081374
+            },
+            {
+                "steps": 500008,
+                "file_path": "results/38/Game Behavior/Game Behavior-500008.onnx",
+                "reward": null,
+                "creation_time": 1606622324.774567
+            },
+            {
+                "steps": 0,
+                "file_path": "results/38/Game Behavior/Game Behavior-0.onnx",
+                "reward": null,
+                "creation_time": 1606622749.077767
+            },
+            {
+                "steps": 0,
+                "file_path": "results/38/Game Behavior/Game Behavior-0.onnx",
+                "reward": null,
+                "creation_time": 1606622818.387765
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 0,
+            "file_path": "results/38/Game Behavior.onnx",
+            "reward": null,
+            "creation_time": 1606622818.387765
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.22.0",
+        "torch_version": "1.7.0",
+        "tensorflow_version": "2.3.1"
+    },
+    "ML": {
+        "checkpoints": [
+            {
+                "steps": 0,
+                "file_path": "results/38/ML/ML-0.onnx",
+                "reward": null,
+                "creation_time": 1606622611.858915
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 0,
+            "file_path": "results/38/ML.onnx",
+            "reward": null,
+            "creation_time": 1606622611.858915
+        }
+    }
+}
