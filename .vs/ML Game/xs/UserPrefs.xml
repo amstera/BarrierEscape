@@ -1,11 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="120" Column="25" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="80" Column="76" />
       <File FileName="Assets/Scripts/Player.cs" />
       <File FileName="Assets/Scripts/Barrier.cs" />
       <File FileName="Library/PackageCache/com.unity.ml-agents@1.0.6/Runtime/Academy.cs" />
-      <File FileName="Assets/Scripts/GameAgent.cs" Line="20" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

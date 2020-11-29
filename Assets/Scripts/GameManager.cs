@@ -9,10 +9,15 @@ public class GameManager : MonoBehaviour
     public GameObject Barrier;
     public GameObject MiddleBarrier;
     public GameObject[] RoadPieces = new GameObject[2];
+    public Material Skybox;
     public Text ScoreText;
+    public Text HighScoreText;
     public Color StartScoreColor;
     public Color EndScoreColor;
+    public Color[] StartSkyColors = new Color[2];
+    public Color[] EndSkyColors = new Color[2];
     public int Score;
+    public int HighScore;
     public bool IsMoving = true;
 
     public AudioSource Blip;
@@ -23,9 +28,11 @@ public class GameManager : MonoBehaviour
     public float RoadLength = 250f;
 
     private bool _scaleScoreText;
+    private float _elapsedTime;
 
     void Start()
     {
+        HighScore = PlayerPrefs.HasKey("HighScore") ? 0 : PlayerPrefs.GetInt("HighScore");
         StartGame();
 
         if (Instance == null)
@@ -40,6 +47,8 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
+
+        _elapsedTime += Time.deltaTime;
 
         RoadSpeed = Mathf.Clamp(RoadSpeed + Time.deltaTime / 4, 5, 15.5f);
 
@@ -70,6 +79,9 @@ public class GameManager : MonoBehaviour
         {
             ScoreText.transform.localScale -= Vector3.one * Time.deltaTime;
         }
+
+        Skybox.SetColor("_SkyGradientTop", Color.Lerp(StartSkyColors[0], EndSkyColors[0], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
+        Skybox.SetColor("_SkyGradientBottom", Color.Lerp(StartSkyColors[1], EndSkyColors[1], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
     }
 
     public void RestartLevel()
@@ -86,7 +98,8 @@ public class GameManager : MonoBehaviour
         GameAgent.Instance.GetComponent<GameAgent>().AddReward(1f);
         Score++;
         ScoreText.text = Score.ToString();
-        ScoreText.color = Color.Lerp(StartScoreColor, EndScoreColor, Mathf.Clamp((float)Score / 35, 0, 1));
+        float scorePercentage = Mathf.Clamp((float)Score / 35, 0, 1);
+        ScoreText.color = Color.Lerp(StartScoreColor, EndScoreColor, scorePercentage);
         _scaleScoreText = true;
         Blip.Play();
     }
@@ -117,9 +130,17 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        if (Score > HighScore)
+        {
+            HighScore = Score;
+            PlayerPrefs.SetInt("HighScore", HighScore);
+            PlayerPrefs.Save();
+        }
+
         IsMoving = true;
         RoadSpeed = 5f;
         Score = 0;
+        _elapsedTime = 0;
 
         StartGame();
     }
@@ -135,5 +156,6 @@ public class GameManager : MonoBehaviour
         PopulateBarriers(1);
         ScoreText.text = Score.ToString();
         ScoreText.color = StartScoreColor;
+        HighScoreText.text = HighScore.ToString();
     }
 }

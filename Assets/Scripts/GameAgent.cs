@@ -17,6 +17,11 @@ public class GameAgent : Agent
 
     public override void CollectObservations(VectorSensor sensor)
 	{
+        if (Player == null)
+        {
+            return;
+        }
+
 		sensor.AddObservation(Player.transform.position.x);
         float radius = Player.GetComponent<SphereCollider>().radius / 2;
         Physics.SphereCast(Player.transform.position, radius, Vector3.forward, out RaycastHit hitInfoForward);
