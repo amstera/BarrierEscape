@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAgent.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="59" Column="6" />
-      <File FileName="Assets/Scripts/Player.cs" Line="20" Column="26" />
-      <File FileName="Assets/Scripts/Barrier.cs" Line="15" Column="33" />
-      <File FileName="Library/PackageCache/com.unity.ml-agents@1.0.6/Runtime/Academy.cs" Line="44" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="120" Column="25" />
+      <File FileName="Assets/Scripts/Player.cs" />
+      <File FileName="Assets/Scripts/Barrier.cs" />
+      <File FileName="Library/PackageCache/com.unity.ml-agents@1.0.6/Runtime/Academy.cs" />
       <File FileName="Assets/Scripts/GameAgent.cs" Line="20" Column="1" />
     </Files>
     <Pads>
@@ -14,7 +14,7 @@
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="GameAgent.cs" selected="True" />
+                  <Node name="GameManager.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

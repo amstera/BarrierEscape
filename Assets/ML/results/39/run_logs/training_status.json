@@ -2,24 +2,6 @@
     "Game Behavior": {
         "checkpoints": [
             {
-                "steps": 427792,
-                "file_path": "results/39/Game Behavior/Game Behavior-427792.onnx",
-                "reward": 18.936247798303764,
-                "creation_time": 1606631073.439818
-            },
-            {
-                "steps": 478413,
-                "file_path": "results/39/Game Behavior/Game Behavior-478413.onnx",
-                "reward": 19.275899412690617,
-                "creation_time": 1606631961.5986052
-            },
-            {
-                "steps": 499974,
-                "file_path": "results/39/Game Behavior/Game Behavior-499974.onnx",
-                "reward": 36.11249577999115,
-                "creation_time": 1606632622.5920541
-            },
-            {
                 "steps": 527285,
                 "file_path": "results/39/Game Behavior/Game Behavior-527285.onnx",
                 "reward": 20.08999773984154,
@@ -30,13 +12,31 @@
                 "file_path": "results/39/Game Behavior/Game Behavior-567081.onnx",
                 "reward": 19.378569016499178,
                 "creation_time": 1606633833.4588869
+            },
+            {
+                "steps": 651529,
+                "file_path": "results/39/Game Behavior/Game Behavior-651529.onnx",
+                "reward": null,
+                "creation_time": 1606673727.8228679
+            },
+            {
+                "steps": 710443,
+                "file_path": "results/39/Game Behavior/Game Behavior-710443.onnx",
+                "reward": 20.12531675556873,
+                "creation_time": 1606674807.966429
+            },
+            {
+                "steps": 856631,
+                "file_path": "results/39/Game Behavior/Game Behavior-856631.onnx",
+                "reward": 30.786360068754718,
+                "creation_time": 1606683694.067374
             }
         ],
         "final_checkpoint": {
-            "steps": 567081,
+            "steps": 856631,
             "file_path": "results/39/Game Behavior.onnx",
-            "reward": 19.378569016499178,
-            "creation_time": 1606633833.4588869
+            "reward": 30.786360068754718,
+            "creation_time": 1606683694.067374
         }
     },
     "metadata": {
