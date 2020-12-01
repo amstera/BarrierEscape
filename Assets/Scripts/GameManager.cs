@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        Handheld.Vibrate();
+        //Handheld.Vibrate();
         GameAgent.Instance.GetComponent<GameAgent>().AddReward(-1f);
         GameAgent.Instance.EndEpisode();
         Rolling.Stop();

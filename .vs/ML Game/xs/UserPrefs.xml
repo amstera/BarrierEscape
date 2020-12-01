@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{2B7C1734-B7B4-DB4D-04A2-836903E892A5}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="162" Column="24" />
-      <File FileName="Assets/Scripts/Player.cs" Line="34" Column="30" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="95" Column="24" />
+      <File FileName="Assets/Scripts/Player.cs" Line="24" Column="24" />
       <File FileName="Assets/Scripts/Barrier.cs" Line="24" Column="58" />
       <File FileName="Library/PackageCache/com.unity.ml-agents@1.0.6/Runtime/Academy.cs" />
       <File FileName="Assets/Scripts/GameAgent.cs" Line="66" Column="86" />
