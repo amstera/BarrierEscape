@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject Barrier;
     public GameObject MiddleBarrier;
+    public GameObject StartButton;
+    public GameObject ColorButton;
     public GameObject[] RoadPieces = new GameObject[2];
     public Material Skybox;
     public Text ScoreText;
@@ -16,9 +18,10 @@ public class GameManager : MonoBehaviour
     public Color EndScoreColor;
     public Color[] StartSkyColors = new Color[2];
     public Color[] EndSkyColors = new Color[2];
+    public Material[] BallMaterials = new Material[4];
     public int Score;
     public int HighScore;
-    public bool IsMoving = true;
+    public bool IsMoving;
 
     public AudioSource Blip;
     public AudioSource Crash;
@@ -29,11 +32,11 @@ public class GameManager : MonoBehaviour
 
     private bool _scaleScoreText;
     private float _elapsedTime;
+    private int _materialIndex;
 
     void Start()
     {
         HighScore = PlayerPrefs.HasKey("HighScore") ? 0 : PlayerPrefs.GetInt("HighScore");
-        StartGame();
 
         if (Instance == null)
         {
@@ -43,6 +46,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Skybox.SetColor("_SkyGradientTop", Color.Lerp(StartSkyColors[0], EndSkyColors[0], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
+        Skybox.SetColor("_SkyGradientBottom", Color.Lerp(StartSkyColors[1], EndSkyColors[1], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
+
         if (!IsMoving)
         {
             return;
@@ -79,13 +85,11 @@ public class GameManager : MonoBehaviour
         {
             ScoreText.transform.localScale -= Vector3.one * Time.deltaTime;
         }
-
-        Skybox.SetColor("_SkyGradientTop", Color.Lerp(StartSkyColors[0], EndSkyColors[0], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
-        Skybox.SetColor("_SkyGradientBottom", Color.Lerp(StartSkyColors[1], EndSkyColors[1], Mathf.Clamp(_elapsedTime / 35, 0, 35)));
     }
 
     public void RestartLevel()
     {
+        Handheld.Vibrate();
         GameAgent.Instance.GetComponent<GameAgent>().AddReward(-1f);
         GameAgent.Instance.EndEpisode();
         Rolling.Stop();
@@ -126,6 +130,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        StartButton.SetActive(false);
+        ColorButton.SetActive(false);
+        IsMoving = true;
+        Score = 0;
+        Rolling.Play();
+        ScoreText.text = Score.ToString();
+        ScoreText.color = StartScoreColor;
+        RoadPieces[0].transform.position = new Vector3(0, 0, 118.8f);
+        RoadPieces[1].transform.position = new Vector3(0, 0, 368.8f);
+        PopulateBarriers(0);
+        PopulateBarriers(1);
+    }
+
+    public void ChangeBallMaterial()
+    {
+        _materialIndex++;
+        Player.GetComponent<MeshRenderer>().material = BallMaterials[_materialIndex % 4];
+    }
+
     private IEnumerator Restart()
     {
         yield return new WaitForSeconds(1);
@@ -135,27 +160,21 @@ public class GameManager : MonoBehaviour
             HighScore = Score;
             PlayerPrefs.SetInt("HighScore", HighScore);
             PlayerPrefs.Save();
+            HighScoreText.text = HighScore.ToString();
         }
 
-        IsMoving = true;
-        RoadSpeed = 5f;
-        Score = 0;
-        _elapsedTime = 0;
-
-        StartGame();
-    }
-
-    private void StartGame()
-    {
-        Rolling.Play();
         Player.GetComponent<MeshRenderer>().enabled = true;
         Player.transform.position = new Vector3(0, 0.5f, -5.5f);
-        RoadPieces[0].transform.position = new Vector3(0, 0, 118.8f);
-        RoadPieces[1].transform.position = new Vector3(0, 0, 368.8f);
-        PopulateBarriers(0);
-        PopulateBarriers(1);
-        ScoreText.text = Score.ToString();
-        ScoreText.color = StartScoreColor;
-        HighScoreText.text = HighScore.ToString();
+
+        foreach (Barrier barrier in FindObjectsOfType<Barrier>())
+        {
+            Destroy(barrier.gameObject);
+        }
+
+        StartButton.SetActive(true);
+        ColorButton.SetActive(true);
+
+        RoadSpeed = 5f;
+        _elapsedTime = 0;
     }
 }
